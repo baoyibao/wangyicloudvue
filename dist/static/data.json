@@ -1,0 +1,79 @@
+{
+  "hasTaste": false,
+  "code": 200,
+  "category": 0,
+  "result": [
+    {
+      "id": 717350164,
+      "type": 0,
+      "name": "女声live | 我好中意她",
+      "copywriter": "编辑推荐：带你体验仿佛置身演唱会现场的感动",
+      "picUrl": "http://p1.music.126.net/2QO4jEpDaJQt_H-LwKariA==/18527870441556883.jpg",
+      "canDislike": false,
+      "playCount": 377372.8,
+      "trackCount": 45,
+      "highQuality": false,
+      "alg": "featured"
+    },
+    {
+      "id": 693733469,
+      "type": 0,
+      "name": "『情怀翻唱』华语歌手别样演绎的欧美经典",
+      "copywriter": "编辑推荐：这些华语歌手竟然唱过这些欧美经典！",
+      "picUrl": "http://p1.music.126.net/Qx782HCmMfjEY1G8HAaJ6A==/18928092672278806.jpg",
+      "canDislike": false,
+      "playCount": 172102.0,
+      "trackCount": 22,
+      "highQuality": false,
+      "alg": "featured"
+    },
+    {
+      "id": 639889494,
+      "type": 0,
+      "name": "电音君你怎么变萌了",
+      "copywriter": "热门歌单推荐",
+      "picUrl": "http://p1.music.126.net/iUNpski-8otBseLcBEzWGA==/19065531625680708.jpg",
+      "canDislike": true,
+      "playCount": 364747.62,
+      "trackCount": 29,
+      "highQuality": false,
+      "alg": "hot_server"
+    },
+    {
+      "id": 695589440,
+      "type": 0,
+      "name": "黄金年代的美国之歌•摇摆爵士乐",
+      "copywriter": "热门歌单推荐",
+      "picUrl": "http://p1.music.126.net/X1Fy8qf-lW5ibafWWdMqgQ==/18638921115940517.jpg",
+      "canDislike": true,
+      "playCount": 370102.6,
+      "trackCount": 50,
+      "highQuality": false,
+      "alg": "hot_server"
+    },
+    {
+      "id": 606827729,
+      "type": 0,
+      "name": "〖超燃炸曲〗摇头晃奶抖腿必备之良品（二）",
+      "copywriter": "热门歌单推荐",
+      "picUrl": "http://p1.music.126.net/0rJIQWGEGzqGmusUSIhjZA==/18676304511840570.jpg",
+      "canDislike": true,
+      "playCount": 458588.22,
+      "trackCount": 72,
+      "highQuality": false,
+      "alg": "hot_server"
+    },
+    {
+      "id": 705997262,
+      "type": 0,
+      "name": "『纯音&予悲』心若琉璃，易碎难留",
+      "copywriter": "热门歌单推荐",
+      "picUrl": "http://p1.music.126.net/3XyE_y5lbvApypGJfrIk0g==/18701593278729444.jpg",
+      "canDislike": true,
+      "playCount": 455182.0,
+      "trackCount": 35,
+      "highQuality": false,
+      "alg": "hot_server"
+    }
+  ]
+}
