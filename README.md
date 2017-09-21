@@ -1,6 +1,6 @@
 # vue仿写网易云app
 
-> 选择GitHub开源的nodejs接口 [地址](https://github.com/Binaryify/NeteaseCloudMusicApi)
+> 选择GitHub开源的nodejs接口 [接口地址](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
 ## Build Setup
 
