@@ -5,15 +5,15 @@
     </div>
 </template>
 <script>
-    import footItem from './components/footitem/footitem'
-     export default{
-       components:{
-        footItem
-       },
-        computed: {
-          showfoot () {
-           return this.$store.state.showfoot
-          }
-         }
-     }
+  import footItem from './components/footitem/footitem';
+  export default{
+    components:{
+      footItem
+    },
+    computed: {
+      showfoot () {
+        return this.$store.state.showfoot;
+      }
+    }
+  }
 </script>

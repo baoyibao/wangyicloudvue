@@ -11,7 +11,8 @@
   </div>
 </template>
 <script>
-import BScroll from 'better-scroll'
+import BScroll from 'better-scroll';
+import url from '../api'
 	export default{
 		data(){
 			return{
@@ -19,7 +20,7 @@ import BScroll from 'better-scroll'
 			}
 		},
     mounted(){
-      this.$http.get('http://192.168.0.117:3000/top/playlist/highquality')
+      this.$http.get(`${url}/top/playlist/highquality`)
         .then(res =>{
           res.data.playlists.forEach(item =>{
             let obj = {
@@ -56,33 +57,35 @@ import BScroll from 'better-scroll'
 <style lang="less" scoped>
   .wrapper{
     position:absolute;
-    top:90px;
-    bottom:60px;
+    top:1.6rem;
+    bottom:1.2rem;
     width:100%;
     overflow:hidden;
     background-color:#fff;
   }
   .songlist{
-    margin-top: 20px;
+    margin-top:.2rem;
     color:#000;
+    ul {
+      display: flex;
+      flex-wrap:wrap;
+    }
     .song{
-      min-height: 154px;
       width:48%;
       margin-left:1%;
       margin-right:1%;
-      display:inline-block;
       img{
         width:100%
       }
 			.content{
-				height: 38px;
+				height: .72rem;
 				word-wrap: break-word;
 				overflow: hidden;
 				display: -webkit-box;
 				text-overflow: ellipsis;
 				-webkit-line-clamp: 2;
 				-webkit-box-orient: vertical;
-				font-size: 12px;
+				font-size: .24rem;
 				color: #333;
 				line-height:1.5;
 				letter-spacing: 1px;

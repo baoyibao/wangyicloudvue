@@ -47,7 +47,8 @@
 	</div>
 </template>
 <script>
-  import BScroll from 'better-scroll'
+  import BScroll from 'better-scroll';
+  import url from '../api';
 	export default{
 		data(){
            return{
@@ -64,19 +65,19 @@
     methods:{
     },
     mounted(){
-       	this.$http.get('http://localhost:3000/top/list?idx=14')
+       	this.$http.get(`${url}/top/list?idx=14`)
        	.then(res =>{
        		this.list1 =  res.data.result
        		this.lists1= res.data.result.tracks
-       		return this.$http.get('http://localhost:3000/top/list?idx=11')
+       		return this.$http.get(`${url}/top/list?idx=11`)
           .then(res =>{
             this.list2 = res.data.result
             this.lists2= res.data.result.tracks
-            return this.$http.get('http://localhost:3000/top/list?idx=21')
+            return this.$http.get(`${url}/top/list?idx=21`)
           .then(res =>{
             this.list3 = res.data.result
             this.lists3= res.data.result.tracks
-            return this.$http.get('http://localhost:3000/top/list?idx=17')
+            return this.$http.get(`${url}/top/list?idx=17`)
           .then(res =>{
             this.list4 = res.data.result
             this.lists4= res.data.result.tracks
@@ -88,42 +89,42 @@
 	}
 </script>
 <style lang="less" scoped>
-	.wrapper{
-    margin-bottom:60px;
-		div{
-           height:120px;
-           overflow:hidden;
-           margin-bottom:10px;
-           img{
-           	height:120px;
-           	width: 30%;
-           	float:left;
-           }
-           .title{
-           	margin-left:5px;
-           	float:left;
-            widht:60%;
-           	height:120px;
-           	overflow:hidden;
-           	p{
-           		font-size: 18px;
-           		margin-bottom:10px;
-              font-weight:bold;
-              color:#666;
-            overflow: hidden; /*自动隐藏文字*/
-            text-overflow: ellipsis;/*文字隐藏后添加省略号*/
-            white-space: nowrap;/*强制不换行*/
-           	}
-           	li{
-           	height:30px;
-            color:#a8adb0;
-           	width:210px;
-           	line-height: 36px;
-           	overflow: hidden; /*自动隐藏文字*/
-            text-overflow: ellipsis;/*文字隐藏后添加省略号*/
-            white-space: nowrap;/*强制不换行*/
-           	}
-           }
+.wrapper{
+  margin-bottom:60px;
+  div{
+    height:120px;
+    overflow:hidden;
+    margin-bottom:10px;
+    img{
+	  height:120px;
+		width: 30%;
+		float:left;
+		}
+		.title{
+		margin-left:5px;
+		float:left;
+		widht:60%;
+		height:120px;
+		overflow:hidden;
+		p{
+			font-size: 18px;
+			margin-bottom:10px;
+  		font-weight:bold;
+  		color:#666;
+			overflow: hidden; /*自动隐藏文字*/
+			text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+			white-space: nowrap;/*强制不换行*/
+		}
+		li{
+			height:30px;
+			color:#a8adb0;
+			width:210px;
+			line-height: 36px;
+			overflow: hidden; /*自动隐藏文字*/
+			text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+			white-space: nowrap;/*强制不换行*/
+			}
 		}
 	}
+}
 </style>	

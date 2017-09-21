@@ -1,10 +1,10 @@
 <template>
 	<div class="search">
-	    <div name="microphone">
-		<span class="icon-microphone"></span>
+	  <div class="svg-icon microphone">
+			<span class="icon-microphone"></span>
 		</div>
 		<input type="text" id="inputvalue" placeholder="搜索电台 音乐 歌手" @click="goSearch()">
-		<div class="music">
+		<div class="svg-icon music">
 		   <span class="icon-headmusic"></span>
 		</div>	
 	</div>
@@ -23,26 +23,29 @@ export default{
 </script>
 <style lang="less" scoped>
 	.search{
-		box-sizing: border-box;
-		line-height: 45px;
-		height:45px;
-		padding:8px 8px;
 		display:flex;
+		height:.8rem;
 		background:#d43c33;
+		align-items: center;
 		color:#fff;
 		.svg-icon{
-			flex:0 0 50px;
+			flex-basis:.8rem;
+			width:.8rem;
+			height:.8rem;
+			padding:.15rem;
+			span{
+				color:#fff;
+				font-size: .5rem;
+			}
 		}
 		input{
 			border:none;
-			height:25px;
-			padding-left:10px;
+			height:.5rem;
+			font-size: .24rem;
+			padding-left:.1rem;
 			margin:0 10px;
-			border-radius: 5px;
+			border-radius: .05rem;
 			flex:1;
-	    }
-		.musci{
-             
-		}
+	  }
 	}
 </style>

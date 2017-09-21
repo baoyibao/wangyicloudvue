@@ -41,25 +41,27 @@
 <style lang="less">
    .foot-tab{
     position:fixed;
-    padding:3px 8px;
     bottom:0;
     left:0;
-    height:60px;
+    height:1.2rem;
     background:rgb(7,17,27);
     width:100%;
-    box-sizing: border-box;
     display:flex;
+    align-items:center;
     text-align: center;
     .tab-item{
-          flex:1;
-          text-align: center;
-          a{
-            display:block;
-            font-size: 12px;
-            }
-          .act{
-             color: #fff;
-            }
-        }
+      flex:1;
+      text-align: center;
+      span {
+        font-size: .48rem;
+      }
+      a{
+        display:block;
+        font-size: .24rem;
+      }
+      .act{
+        color: #fff;
+      }
+    }
    }
 </style>

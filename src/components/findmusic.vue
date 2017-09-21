@@ -24,34 +24,34 @@
 					</router-link>
 				</div>
 			</div>
-  	</div>
+		</div>
 	<router-view></router-view>	
-  </div>
+	</div>
 </template>
 <script>
 import  vhead from '../components/vhead/vhead';
 	export default{
-    components:{
-      vhead
-    }
+		components:{
+			vhead
+		}
 	}
 </script>
 <style lang="less">
 @import "../common/css/mixin.less";
 .tab{
-  display:flex;
-  background-color:#f8f8f9;
-.tab-item{
-           flex:1;
-           height:45px;
-           line-height:45px; 
-           font-size: 16px;
-           text-align: center;
-          .router-link-active{
-            display:block;
-             color:red;
-             .border_1px(red);
-           }
-    }
-  }
+	display:flex;
+	background-color:#f8f8f9;
+	.tab-item{
+		flex:1;
+		height:.8rem;
+		line-height:.8rem; 
+		font-size: .28rem;
+		text-align: center;
+		.router-link-active{
+			display:block;
+			color:red;
+			.border_1px(red);
+		}
+	}
+}
 </style>	

@@ -4,20 +4,25 @@ import Axios from 'axios'
 Vue.use(Vuex)
 
 const store =new Vuex.Store({
-      state:{
-          showfoot:true,
-      },
-      getters:{  
-        showfoot:state => state.showfoot
-      },
-      mutations:{
-        changefoot(state) {
-          state.showfoot = ! state.showfoot
-      	 }
-      },
-      actions:{
-          
-      }
+  state:{
+		showfoot:true,
+		playmusic:false,
+	},
+	getters:{  
+		showfoot:state => state.showfoot,
+		playmusic:state => state.playmusic
+	},
+	mutations:{
+  	changefoot(state) {
+			state.showfoot = ! state.showfoot
+		},
+		changeplay(state) {
+			state.playmusic = ! state.playmusic
+		}
+	},
+	actions:{
+    
+	}
 })
 
 export default store
