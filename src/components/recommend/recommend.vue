@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper" ref="wrapper">
 		<div class="recommend">
-			<slideshow :slides="slides">      
+			<slideshow v-if="slides.length" :slides="slides">      
 			</slideshow>
 			<div class="circle-bar">
 				<div class="circle circle-1">
@@ -21,7 +21,7 @@
 			<div class="h2">推荐歌单</div>
 			<div class="songlist">
 				<ul>
-					<li class="song" v-for="item in songlists" @click="jumpPlayListsDetail(item.id)">
+					<li class="song" v-for="item in songlists" @click="jumpPlayListsDetail(item.id,item)">
 						<img :src="item.picUrl">
 						<div class="content">{{item.name}}</div>
 					</li>
@@ -52,6 +52,7 @@ import url from '../api'
 			slideshow
 		},
 		mounted () {
+			this.getbanner()
 			this.$http.get(`${url}/personalized`)
 			.then(res =>{
 					this.songlists = res.data.result;
@@ -65,6 +66,12 @@ import url from '../api'
 			});
 		},
 		methods:{
+			getbanner() {
+				this.$http.get(`${url}/banner`)
+					.then(res => {
+					this.slides = res.data.banners;
+				})
+			},
 			_initScroll:function () {
 				if (!this.wrapperScroll) {
 					this.wrapperScroll = new BScroll(this.$refs.wrapper, {
@@ -74,11 +81,12 @@ import url from '../api'
 					this.wrapperScroll.refresh();
 				}
 			},
-			jumpPlayListsDetail:function(id) {
+			jumpPlayListsDetail:function(id,obj) {
 				this.$router.push({
 						path:'/songlistsdetail/' + id
 				});
 				this.$store.commit('changefoot');
+				this.$store.dispatch('playinfo',obj);
 			}
 		},
 		data (){
@@ -87,40 +95,7 @@ import url from '../api'
 				resultmv:[],
 				scrollY:0,
 				songlists:[],
-				slides:[
-				{
-					src:require("../slideshow/1.png"),
-					title:'1',
-				},     
-				{
-					src:require("../slideshow/2.png"),
-					title:'2',
-				},
-				{
-					src:require("../slideshow/3.png"),
-					title:'3',
-				},
-				{
-					src:require("../slideshow/4.png"),
-					title:'4',
-				},
-				{
-					src:require("../slideshow/5.png"),
-					title:'5',
-				},
-				{
-					src:require("../slideshow/6.png"),
-					title:'6',
-				},
-				{
-					src:require("../slideshow/7.png"),
-					title:'7',
-				},
-				{
-					src:require("../slideshow/8.png"),
-					title:'8',
-				}
-				]
+				slides:[]
 			}
 		}        
 	}

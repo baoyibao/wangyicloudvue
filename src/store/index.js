@@ -4,24 +4,36 @@ import Axios from 'axios'
 Vue.use(Vuex)
 
 const store =new Vuex.Store({
-  state:{
+	state:{
 		showfoot:true,
 		playmusic:false,
+		playlistDetail:{},
+		songlist:[],
+		isloading:false
 	},
 	getters:{  
-		showfoot:state => state.showfoot,
-		playmusic:state => state.playmusic
 	},
 	mutations:{
-  	changefoot(state) {
+		playlistInfo(state,obj) {
+			state.playlistDetail = obj
+		},
+		changefoot(state) {
 			state.showfoot = ! state.showfoot
 		},
 		changeplay(state) {
 			state.playmusic = ! state.playmusic
-		}
+		},
+		playmusiclist(state,arr) {
+			state.songlist = arr
+		},
 	},
 	actions:{
-    
+		playinfo({commit},obj) {
+			commit('playlistInfo',obj)
+		},
+		setSong({commit},arr) {
+			commit('playmusiclist',arr)
+		}
 	}
 })
 

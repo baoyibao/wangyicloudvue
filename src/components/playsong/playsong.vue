@@ -21,16 +21,16 @@
 		</div>
 		<div class="playctrl">
 			<div class="progress">
-      </div>
-      <div class="control">
-      	<ul>
-      		<li><i class="fa fa-random" aria-hidden="true"></i></li>
-      		<li><i class="fa fa-step-backward" aria-hidden="true"></i></li>
-      		<li class="play"><i class="fa fa-pause" aria-hidden="true"></i></li>
-      		<li><i class="fa fa-step-forward" aria-hidden="true"></i></li>
-      		<li><i class="fa fa-align-justify" aria-hidden="true"></i></li>
-      	</ul>
-      </div>
+	  		</div>
+	 		<div class="control">
+				<ul>
+					<li><i class="fa fa-random" aria-hidden="true"></i></li>
+					<li><i class="fa fa-step-backward" aria-hidden="true"></i></li>
+					<li class="play"><i class="fa fa-pause" aria-hidden="true"></i></li>
+					<li><i class="fa fa-step-forward" aria-hidden="true"></i></li>
+					<li><i class="fa fa-align-justify" aria-hidden="true"></i></li>
+				</ul>
+			</div>
 		</div>
 		<div class="audio">
 			<audio autoplay="autoplay" loop="loop" preload="auto" :src="url">
@@ -55,9 +55,10 @@ import url from '../api'
 			this.$http.get(`${url}/music/url?id=` + this.$route.params.id).then(res => {
 				this.url= res.data.data[0].url;
 				return this.$http.get(`${url}/song/detail?ids=`+ this.$route.params.id).then(res =>{
-				 	this.picUrl = res.data.songs[0].al.picUrl
-				 	this.name = res.data.songs[0].name
-				})
+					this.picUrl = res.data.songs[0].al.picUrl
+					this.name = res.data.songs[0].name
+				}
+			)
 		});
 	}
 }
@@ -124,15 +125,15 @@ import url from '../api'
 	overflow: hidden;
 	.playspan {
 		position: absolute;
-  	left: 38%;
-  	top: -.2rem;
-  	width: 1.8rem;
-  	height: 2.8rem;
-  	z-index: 1;
-  	img {
-  		width: 100%;
-  		height: 100%;
-  	}
+	left: 38%;
+	top: -.2rem;
+	width: 1.8rem;
+	height: 2.8rem;
+	z-index: 1;
+	img {
+		width: 100%;
+		height: 100%;
+	}
 	}
 	.main {
 		width: 5rem;
@@ -157,30 +158,30 @@ import url from '../api'
 .playctrl {
 	position: absolute;
 	left: 0;
-  bottom: 0;
-  right: 0; 
-  height: 2rem;
-  color: #fff;
-  .control {
-  	padding:0 .3rem;
-  	margin-top: .6rem;
-  	ul {
-  		display: flex;
-  		align-items: center;
-  		li {
-  			flex:1;
-  			text-align: center;
-  			i {
-  				font-size: .4rem;
-  			}
-  		}
-  		.play{
+	bottom: 0;
+	right: 0; 
+	height: 2rem;
+	color: #fff;
+	.control {
+		padding:0 .3rem;
+		margin-top: .6rem;
+		ul {
+			display: flex;
+			align-items: center;
+			li {
+				flex:1;
+				text-align: center;
 				i {
-  				font-size: .6rem;
-  			}
+					font-size: .4rem;
+				}
 			}
+			.play{
+				i {
+					font-size: .6rem;
+				}
+			}
+		}
   	}
-  }
 }
 @-webkit-keyframes rotation{
 	from {-webkit-transform: rotate(0deg);}

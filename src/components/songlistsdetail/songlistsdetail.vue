@@ -14,18 +14,18 @@
 			</div>
 			<div class="detailsong">
 				<div class="detailbg">
-					<div class="img"><img class="picUrl" :src="coverImgUrl" alt=""></div>
+					<div class="img"><img class="picUrl" :src="playlistDetail.picUrl" ></div>
 					<div class="content">
-						<h2>{{name}}</h2>
+						<h2>{{playlistDetail.name}}</h2>
 						<div class="name">
-							<div class="autor"><img :src="avatarUrl"></div>
-					 		<p>{{nickname}}</p>
+							<div class="autor"><img :src="playlistDetail.avatarUrl"></div>
+							<p>{{playlistDetail.nickname}}</p>
 							<i class="fa fa-angle-right" aria-hidden="true"></i>
 						</div>
 					</div>
 				</div>
 				<div class="background">
-					<img :src="coverImgUrl" width="100%" height="100%" alt="">
+					<img :src="playlistDetail.picUrl" width="100%" height="100%" alt="">
 				</div>
 			</div>
 			<div class="list-wrapper">
@@ -51,7 +51,8 @@
 </template>
 <script>
 	import Vue from 'vue';
-	import url from '../api'
+	import url from '../api';
+	import {mapState} from 'vuex';
 	export default {
 	name: 'detail',
 		data () {
@@ -62,10 +63,14 @@
 				nickname: '',
 				signature: '',
 				isloading: true,
-				coverImgUrl: '',
 				name:'',
 				id:''
 			};
+		},
+		computed: {
+			...mapState([
+				'playlistDetail'
+			])
 		},
 		methods:{
 			back:function(){
@@ -75,25 +80,26 @@
 			showContent: function () {
 				this.isloading = false;
 			},
-			jumpPlay:function(id){
-				 this.$router.push({
+			jumpPlay:function(id,arr){
+				this.$router.push({
 					 path:'/playsong/' + id
 				});
+				this.$store.dispatch('setSong',arr);
 		 }
 		},
 		mounted () {
+			console.log(this.$store)
 			setTimeout(this.showContent, 1000);
 			this.$http.get(`${url}/playlist/detail?id=`+this.$route.params.id).then(res =>
-			{
-				this.avatarUrl = res.data.playlist.creator.avatarUrl;
-				this.backgroundUrl = res.data.playlist.creator.backgroundUrl;
-				this.nickname = res.data.playlist.creator.nickname;
-				this.signature = res.data.playlist.creator.signature;
-				this.details = res.data.playlist.tracks;
-				this.name = res.data.playlist.name;
-				this.detailslength= this.details.length;
-				this.coverImgUrl = res.data.playlist.coverImgUrl;
-			});
+				{
+					this.playlist = res.data.playlist;
+					this.nickname = res.data.playlist.creator.nickname;
+					this.signature = res.data.playlist.creator.signature;
+					this.details = res.data.playlist.tracks;
+					this.name = res.data.playlist.name;
+					this.detailslength= this.details.length;
+				}
+			);
 		}
 	};
 </script>
@@ -189,7 +195,7 @@
 				font-size: .24rem;
 			}
 		}
- 	}
+	}
 }
 .list-wrapper{
 	.info {
@@ -215,7 +221,7 @@
 			flex:0 0 1rem;
 			text-align: center;
 			line-height:1rem;
-	 	}
+		}
 		.title{
 			flex:1;
 			color:#666;
@@ -228,7 +234,7 @@
 				color:#83888d;
 				font-size:0.28rem;
 			}
-	 	}
-	}    
-}       
+		}
+	}
+}
 </style>

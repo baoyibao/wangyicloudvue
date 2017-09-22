@@ -1,7 +1,7 @@
 <template>
 	<div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
 		<div class="slide-image">
-			<img :src="slides[nowIndex].src" alt="">
+			<img :src="slides[nowIndex].pic" alt="">
 		</div>
 	</div>
 </template>
@@ -14,7 +14,7 @@
 			},
 			inv:{
 				type:Number,
-				default:2000
+				default:3000
 			}
 		},
 		data(){
